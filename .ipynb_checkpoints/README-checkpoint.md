@@ -1,6 +1,8 @@
 # Disaster Response Pipeline Project
 
-This project (part of the Udacity Nanodegree Program) uses a rich dataset of precategorized natural disaster related tweets to train a random forest classifer. It uses NLP techniques to achieve this Goal. By the means of a webapp the a user can use the trained model to classify new messages.
+This project (part of the Udacity Nanodegree Program) aims to help agencies in the event of a natural disaster. 
+The agencies can use the developed artificial intelligence to automatically categorize incoming text messages.
+Once the messages are categorized they can be routed to the responsible teams. This automatization significantly reduces manual efforts in this regard and let the agencies focus on actually helping the people in need!
 
 ### Instructions:
 0. Activate virtual environment (or install the listed dependencies
