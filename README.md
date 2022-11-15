@@ -1,5 +1,7 @@
 # Disaster Response Pipeline Project
 
+This Udacity Nano Degree Project uses a rich dataset of precategorized natural disaster related tweets to train a random forest classifer. It uses NLP techniques to achieve this Goal. By the means of a webapp the a user can use the trained model to classify new messages.
+
 ### Instructions:
 0. Activate virtual environment (or install the listed dependencies
 `source venv/bin/activate`
@@ -57,3 +59,10 @@ tqdm               4.64.1
 Werkzeug           2.2.2
 wheel              0.38.4
 zipp               3.10.0
+
+### Files
+disaster_messages.csv ... dataset containing translated tweets relating to some disaster situation
+disaster_categories.csv ... raw data listing the true categories of every tweet (label,classification) in disaster_messages.csv
+train.py ... script used for training the model
+etl_pipeline.py ... script used for preprocessing the data (disaster_categories.csv/disaster_messages.csv)
+run.py ...script used to launch the webapp 
