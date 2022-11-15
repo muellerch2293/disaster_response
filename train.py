@@ -59,10 +59,15 @@ def tokenize(text):
 
 
 def build_model():
+    """
+    Creates a RandomForestClassifier with the required preprocessing steps in a pipeline 
+    Return:
+   GridSearchCv: a GridSearchCV over a pipeline consisting of a CountVectorizer,TfidfTransformer and a RandomForestClassifier with multiple output    classes
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer = tokenize)),
         ('tfidf', TfidfTransformer()),
-        ('clf',  MultiOutputClassifier(RandomForestClassifier(n_estimators=50)))
+        ('clf',  MultiOutputClassifier(RandomForestClassifier()))
     ])
     parameters = {
         'clf__estimator__n_estimators': [10, 25, 50, 100, 200,500]
@@ -73,6 +78,18 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):   
+    """
+    Evaluates the prediction performance of the model on every category
+    Parameters: 
+    model : 
+        model that should be evaluated
+    X_test: 
+        test input that should be used for evaluation
+    Y_test:
+        the correct classification of the test input
+    category_names:
+        the name of all possible classification categories 
+    """
     y_pred = model.predict(X_test)
     i = 0
     for col in Y_test:
@@ -85,6 +102,14 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """
+    Persists the model in a pickle file
+    Parameters: 
+    model : 
+        model that should be persistest
+    model_filepath: 
+        location where the pickle file should be written to
+    """
     with open(model_filepath, 'wb') as file:
         pickle.dump(model, file)
 
