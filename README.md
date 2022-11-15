@@ -9,7 +9,7 @@ This project (part of the Udacity Nanodegree Program) uses a rich dataset of pre
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
-        `python etl_pipeline.py`
+        `python etl_pipeline.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response.db`
     - To run ML pipeline that trains classifier and saves
         `python train.py data/disaster_response.db models/classifier.pkl`
 
