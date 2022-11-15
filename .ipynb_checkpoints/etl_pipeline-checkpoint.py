@@ -44,6 +44,9 @@ def main():
     # drop duplicates
     df.drop_duplicates(inplace = True)
     engine = create_engine('sqlite:///data/disaster_response.db')
+    #drop table if exists 
+    sql = 'DROP TABLE IF EXISTS disaster_messages;'
+    result = engine.execute(sql)
     df.to_sql('disaster_messages', engine, index=False)
     print("Cleaned data and saved into disaster_messages table!")
     
